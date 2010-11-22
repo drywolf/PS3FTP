@@ -1,0 +1,10 @@
+#!/usr/bin/expect
+
+spawn telnet 192.168.1.4 21
+
+expect "220 Hi, I'm your PS3 FTP server."
+
+send "QUITR\r\n"
+
+interact
+
