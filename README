@@ -1,17 +1,59 @@
-This is a sneak peek of my minimal PS3 FTP server written with the help of PSL1GHT
 
-1) to start the FTP server, just run the ps3ftp.fself via ps3load/wiiload or install the 
-   ps3ftp.pkg and run it directly on your PS3.
+ ____    ____       __            ____    ______ ____    
+/\  _`\ /\  _`\   /'__`\         /\  _`\ /\__  _\\  _`\  
+\ \ \L\ \ \,\L\_\/\_\L\ \        \ \ \L\_\/_/\ \/ \ \L\ \
+ \ \ ,__/\/_\__ \\/_/_\_<_ _______\ \  _\/  \ \ \\ \ ,__/
+  \ \ \/   /\ \L\ \/\ \L\ \\______\\ \ \/    \ \ \\ \ \/ 
+   \ \_\   \ `\____\ \____//______/ \ \_\     \ \_\\ \_\ 
+    \/_/    \/_____/\/___/           \/_/      \/_/ \/_/ 
 
-2) usage: I have mainly developed this while testing it with Filezilla, if it works with other
-   FTP clients that's fine, but if it doesn't work don't blame me.
-   Up to now the FTP server is just single-thread/single-connection, so before you can connect
-   to the server again, you have to close any previous connection. This also means that you
-   have to configure Filezilla to use only one FTP connection at a time (you can configure this
-   in Filezillas server options).
 
-3) To stop the server once it is running, you have to close the FTP connection to it from your
-   FTP client then connect to the FTP port (21) of your PS3 via telnet and type "QUIT!".
-   If you are running Unix and have the "expect" interpreter installed, you can use the "stop"
-   script that is located at the repository's root directory.
+A minimal PlayStation3 FTP server written with the help of PSL1GHT (http://www.psl1ght.com/)
 
+1) To start the FTP server, just run the ps3ftp.self via ps3load/wiiload or install the 
+   ps3ftp.pkg and run it directly from the XMB on your PS3.
+
+2) Configure your FTP client to use passive mode and only one FTP connection at a time.
+
+3) Connect to your PS3's IP on port 21 with an FTP client of your choice. If you don't
+   know the IP address of your PS3, go to Settings -> Network Settings in the XMB, it is
+   listed there along with other network settings.   
+   
+   PS3-FTP has been tested and should be compatible with the following clients:
+   * Filezilla
+   * FlashFXP
+   * CuteFTP
+   * WinSCP
+   * Windows Explorer
+   * BSD/UNIX FTP shell client
+
+4) To stop the server once it is running, you have to be connected to your PS3 with your 
+   FTP client. Press and hold down the X button on your controller and terminate the 
+   connection of your FTP client or just close the FTP client on your PC completely.
+   The PS3-FTP server should then shutdown and your PS3 should return to the XMB.
+   
+   If you are a developer, you can also stop and restart PS3-FTP via telnet. Simply 
+   connect to the FTP port (21) of your PS3 via telnet and type "QUIT!" or "QUITR". If 
+   you are running Unix and have the "expect" interpreter installed, you can use the 
+   "stop" and "restart" scripts that are located at the repository's root directory.
+   (Remember to close the connection of your FTP client before trying to connect via telnet)
+
+
+Changelog:
+ <v1.0>
+ * Support for the following FTP commands:
+   USER, PASS, FEAT, PWD, PASV, LIST, RETR, CWD, CDUP, 
+   SYST, REST, DELE, STOR, MKD, RMD, RNFR, RNTO, SIZE
+   
+ * Support for the following FTP clients:
+   Filezilla, FlashFXP, CuteFTP, WinSCP, 
+   Windows Explorer, BSD/UNIX FTP shell client
+
+
+Releases:
+   11/24/10 – PS3-FTP Server <v1.0>
+
+
+Disclaimer:
+   This software is made available under the terms of the GNU GPL v3, 
+   see http://www.gnu.org/licenses/ for details.

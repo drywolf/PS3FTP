@@ -10,11 +10,12 @@ BUILD		:=	build
 SOURCE		:=	source
 INCLUDE		:=	include
 DATA		:=	data
-LIBS		:=	-lnet -lsysmodule
+LIBS		:=	-lio -lnet -lsysmodule
 
-TITLE		:=	ECHOServer - PSL1GHT
-APPID		:=	TEST00000
+APPID		:=	FTPD00001
 CONTENTID	:=	UP0001-$(APPID)_00-0000000000000000
+SFOXML      :=  pkg/package.xml
+ICON_PNG    :=  pkg/icon.png
 
 CFLAGS		+= -g -O2 -Wall --std=gnu99
 CXXFLAGS	+= -g -O2 -Wall
@@ -55,9 +56,9 @@ pkg: $(BUILD)
 	@echo Creating PKG...
 	@mkdir -p $(BUILD)/pkg
 	@mkdir -p $(BUILD)/pkg/USRDIR
-	@cp $(ICON0) $(BUILD)/pkg/
+	@cp $(ICON_PNG) $(BUILD)/pkg/ICON0.PNG
 	@$(FSELF) -n $(BUILD)/$(TARGET).elf $(BUILD)/pkg/USRDIR/EBOOT.BIN
-	@$(SFO) --title "$(TITLE)" --appid "$(APPID)" -f $(SFOXML) $(BUILD)/pkg/PARAM.SFO
+	@$(SFO) -f $(SFOXML) $(BUILD)/pkg/PARAM.SFO
 	@$(PKG) --contentid $(CONTENTID) $(BUILD)/pkg/ $(OUTPUT).pkg
 	
 run: $(BUILD)
