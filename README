@@ -10,8 +10,8 @@
 
 A minimal PlayStation3 FTP server written with the help of PSL1GHT (http://www.psl1ght.com/)
 
-1) To start the FTP server, just run the ps3ftp.self via ps3load/wiiload or install the 
-   ps3ftp.pkg and run it directly from the XMB on your PS3.
+1) To start the FTP server, just run the PS3-FTP.self via ps3load/wiiload or install the 
+   PS3-FTP.pkg and run it directly from the XMB on your PS3.
 
 2) Configure your FTP client to use passive mode and only one FTP connection at a time.
 
@@ -51,9 +51,10 @@ Changelog:
 
 
 Releases:
-   11/24/10 – PS3-FTP Server <v1.0>
+   11/24/10 - PS3-FTP Server <v1.0>
 
 
 Disclaimer:
    This software is made available under the terms of the GNU GPL v3, 
    see http://www.gnu.org/licenses/ for details.
+   (source code available at GitHub: https://github.com/stoneMcClane/PS3FTP)
